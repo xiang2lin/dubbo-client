@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+        <!-- 一般会定义成项目的名称-->
+        <dubbo:application name="dubbo-client"  owner="xiang"/>
+        <!-- 注册中心, 如果不需要 address"N/A"-->
+        <dubbo:registry address="zookeeper://192.168.19.128:2181"/>
+        <!-- 配置协议  默认是dubbo协议   支持多协议-->
+        <dubbo:protocol name="dubbo" port="20880"/>
+        <!-- 服务对象及协议地址-->
+        <dubbo:reference id="helloService" interface="com.xiang.dubbo.IHelloService"/>
+</beans>
