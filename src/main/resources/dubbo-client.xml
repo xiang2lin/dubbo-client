@@ -12,10 +12,9 @@
 
         <!-- 一般会定义成项目的名称-->
         <dubbo:application name="dubbo-client"  owner="xiang"/>
-        <!-- 注册中心, 如果不需要 address"N/A"-->
-        <dubbo:registry address="zookeeper://192.168.19.128:2181"/>
-        <!-- 配置协议  默认是dubbo协议   支持多协议-->
-        <dubbo:protocol name="dubbo" port="20880"/>
+        <!-- 注册中心, 如果不需要 address"N/A"  file为缓存文件路径-->
+                <dubbo:registry address="zookeeper://192.168.19.128:2181" file="d:/dubbo-cache"/>
+
         <!-- 服务对象及协议地址-->
         <dubbo:reference id="helloService" interface="com.xiang.dubbo.IHelloService"/>
 </beans>
